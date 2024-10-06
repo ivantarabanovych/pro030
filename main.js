@@ -1,18 +1,25 @@
-function SomeiteratorObject(iterable) {
-    const iterator = iterable[Symbol.iterator]();
-    let result = iterator.next();
+function isPrime(num) {
+    if (num <= 1) return false; 
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false; 
+    }
+    return true; 
+}
 
-    while (!result.done){
-        console.log(result.value);
-        result = iterator.next();
+function* primeIterator(start, end) {
+    for (let i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            yield i;
+        }
     }
 }
 
-const SomeArray = [
-    1, 2, 3, 4, 5, 6, 7, 8
-]
+const primes = [];
+const primeGen = primeIterator(1, 100); 
 
-const String = "hello"
+for (let prime of primeGen) {
+    primes.push(prime);
+    if (primes.length === 10) break; 
+}
 
-SomeiteratorObject(SomeArray);
-SomeiteratorObject(String);
+console.log("Перші 10 простих чисел:", primes);
