@@ -1,16 +1,18 @@
-function originalFor(arr){
-    for (let i = 0; i < arr.length; i++){
-        console.log(arr[i]);
+function SomeiteratorObject(iterable) {
+    const iterator = iterable[Symbol.iterator]();
+    let result = iterator.next();
+
+    while (!result.done){
+        console.log(result.value);
+        result = iterator.next();
     }
 }
 
-const myArray = [21, 23, 24, 25, 26];
-originalFor(myArray);
+const SomeArray = [
+    1, 2, 3, 4, 5, 6, 7, 8
+]
 
-function rewrittenForOf(arr) {
-    for(const element of arr){
-        console.log(element);
-    }
-}
-const rewrittenArray = [12, 13, 14, 15, 16];
-rewrittenForOf(rewrittenArray);
+const String = "hello"
+
+SomeiteratorObject(SomeArray);
+SomeiteratorObject(String);
