@@ -1,13 +1,16 @@
-const Array = [
-    "Some string",
-    5346,
-    {name: "Ivan", age: 21},
-    [17, 25, 23, 5, 6, 7],
-    true,
-    null, 
-    undefined
-];
-
-for(const item of Array){
-    console.log(item);
+function originalFor(arr){
+    for (let i = 0; i < arr.length; i++){
+        console.log(arr[i]);
+    }
 }
+
+const myArray = [21, 23, 24, 25, 26];
+originalFor(myArray);
+
+function rewrittenForOf(arr) {
+    for(const element of arr){
+        console.log(element);
+    }
+}
+const rewrittenArray = [12, 13, 14, 15, 16];
+rewrittenForOf(rewrittenArray);
