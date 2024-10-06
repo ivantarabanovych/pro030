@@ -1,39 +1,15 @@
-class customIterator{
-    constructor(data){
-        this.data = data;
-        this.index = 0;
-    }
-
-[Symbol.iterator](){
-    return this;
+//цикл for
+const array = [10, 20, 30, 40];
+for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
 }
-
-next(){
-    if(this.index < this.data.length){
-        return{
-            value: this.data[this.index++],
-            done: false
-        };
-    } else {
-        return {
-            value: undefined,
-            done: true
-        };
-    }
+//Цикл for..in
+const obj = { name: 'Somename', age: 30, city: 'Somecity' };
+for (let key in obj) {
+    console.log(key + ': ' + obj[key]);
 }
-}
-
-const Data = [
-    "hello",
-    13,
-    true,
-    null,
-    {key: "value"},
-    [2, 4, 6]
-]
-
-const iterator = new customIterator(Data);
-
-for(const item of iterator){
-    console.log(item);
+//Цикл for..of
+const array = [10, 20, 30, 40];
+for (let value of array) {
+    console.log(value);
 }
